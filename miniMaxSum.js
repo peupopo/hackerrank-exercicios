@@ -28,26 +28,17 @@ function readLine() {
 
 function miniMaxSum(arr) {
     // Write your code here
-    let smallestNum = arr[0];
-    let biggestNum = arr[0];
+    arr.sort();
+
     let miniSum = 0;
     let maxSum = 0;
-    
-    for (let i = 0; i < arr.length; i++) {
-        if (smallestNum > arr[i]) {
-            smallestNum = arr[i];
-        }
-        
-        if (biggestNum < arr[i]) {
-            biggestNum = arr[i];
-        }
-    }
-    
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] != biggestNum) {
+
+    for(let i = 0; i < arr.length; i++) {
+        if(i < arr.length - 1) {
             miniSum = miniSum + arr[i];
-        }
-        if (arr[i] != smallestNum) {
+        } 
+        
+        if (i > 0) {
             maxSum = maxSum + arr[i];
         }
     }
